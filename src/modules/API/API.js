@@ -1,7 +1,7 @@
 // API.js
 // ======
 
-/* Copyright  2014 Yahoo Inc. 
+/* Copyright  2014 Yahoo Inc.
  * Copyrights licensed under the MIT License. See the accompanying LICENSE file for terms.
  */
 
@@ -9,6 +9,7 @@ define([
   'core/utils',
   'core/error',
   'core/defaultOptions',
+  'core/AnimatedGIF',
   'API/isSupported',
   'API/isWebCamGIFSupported',
   'API/isExistingImagesGIFSupported',
@@ -20,6 +21,7 @@ define([
   utils,
   error,
   defaultOptions,
+  AnimatedGIF,
   isSupported,
   isWebCamGIFSupported,
   isExistingImagesGIFSupported,
@@ -31,6 +33,7 @@ define([
   var gifshot = {
     'utils': utils,
     'error': error,
+    'AnimatedGIF': AnimatedGIF,
     'defaultOptions': defaultOptions,
     'createGIF': createGIF,
     'takeSnapShot': takeSnapShot,
