@@ -23,7 +23,7 @@ define([
       return callback(error.validate());
     }
     if (options.savedRenderingContexts.length) {
-      screenShot.getWebcamGIF(options, function(obj) {
+      screenShot.getGIF(options, function(obj) {
         callback(obj);
       });
       return;
