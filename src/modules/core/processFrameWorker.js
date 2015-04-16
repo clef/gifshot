@@ -3,7 +3,7 @@
 
 // Inspired from https://github.com/sole/Animated_GIF/blob/master/src/Animated_GIF.worker.js
 
-/* Copyright  2014 Yahoo Inc. 
+/* Copyright  2014 Yahoo Inc.
  * Copyrights licensed under the MIT License. See the accompanying LICENSE file for terms.
  */
 
@@ -58,7 +58,7 @@ define([
         var rgbComponents = this.dataToRGB(imageData, width, height),
           nq = new NeuQuant(rgbComponents, rgbComponents.length, sampleInterval),
           paletteRGB = nq.process(),
-          paletteArray = new Uint32Array(this.componentizedPaletteToArray(paletteRGB)),
+          paletteArray = new window.Uint32Array(this.componentizedPaletteToArray(paletteRGB)),
           numberPixels = width * height,
           indexedPixels = new Uint8Array(numberPixels),
           k = 0,

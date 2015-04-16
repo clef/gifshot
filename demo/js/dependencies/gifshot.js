@@ -712,7 +712,7 @@ processFrameWorker = function (NeuQuant) {
         return paletteArray;
       },
       'processFrameWithQuantizer': function (imageData, width, height, sampleInterval) {
-        var rgbComponents = this.dataToRGB(imageData, width, height), nq = new NeuQuant(rgbComponents, rgbComponents.length, sampleInterval), paletteRGB = nq.process(), paletteArray = new Uint32Array(this.componentizedPaletteToArray(paletteRGB)), numberPixels = width * height, indexedPixels = new Uint8Array(numberPixels), k = 0, i, r, g, b;
+        var rgbComponents = this.dataToRGB(imageData, width, height), nq = new NeuQuant(rgbComponents, rgbComponents.length, sampleInterval), paletteRGB = nq.process(), paletteArray = new window.Uint32Array(this.componentizedPaletteToArray(paletteRGB)), numberPixels = width * height, indexedPixels = new Uint8Array(numberPixels), k = 0, i, r, g, b;
         for (i = 0; i < numberPixels; i++) {
           r = rgbComponents[k++];
           g = rgbComponents[k++];
