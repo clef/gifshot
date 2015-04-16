@@ -22,6 +22,14 @@ define([
       };
     } catch (e) {}
 
+    function getUint32Array(options) {
+      try {
+        return new Uint32Array(options);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
     var workerMethods = {
       'dataToRGB': function(data, width, height) {
         var i = 0,
@@ -58,7 +66,7 @@ define([
         var rgbComponents = this.dataToRGB(imageData, width, height),
           nq = new NeuQuant(rgbComponents, rgbComponents.length, sampleInterval),
           paletteRGB = nq.process(),
-          paletteArray = new Uint32Array(this.componentizedPaletteToArray(paletteRGB)),
+          paletteArray = getUint32Array(this.componentizedPaletteToArray(paletteRGB)),
           numberPixels = width * height,
           indexedPixels = new Uint8Array(numberPixels),
           k = 0,
