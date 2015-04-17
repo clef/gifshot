@@ -697,6 +697,13 @@ processFrameWorker = function (NeuQuant) {
         console.log(e);
       }
     }
+    function getUint8Array(options) {
+      try {
+        return new Uint8Array(options);
+      } catch (e) {
+        console.log(e);
+      }
+    }
     var workerMethods = {
       'dataToRGB': function (data, width, height) {
         var i = 0, length = width * height * 4, rgb = [];
@@ -719,7 +726,7 @@ processFrameWorker = function (NeuQuant) {
         return paletteArray;
       },
       'processFrameWithQuantizer': function (imageData, width, height, sampleInterval) {
-        var rgbComponents = this.dataToRGB(imageData, width, height), nq = new NeuQuant(rgbComponents, rgbComponents.length, sampleInterval), paletteRGB = nq.process(), paletteArray = getUint32Array(this.componentizedPaletteToArray(paletteRGB)), numberPixels = width * height, indexedPixels = new Uint8Array(numberPixels), k = 0, i, r, g, b;
+        var rgbComponents = this.dataToRGB(imageData, width, height), nq = new NeuQuant(rgbComponents, rgbComponents.length, sampleInterval), paletteRGB = nq.process(), paletteArray = getUint32Array(this.componentizedPaletteToArray(paletteRGB)), numberPixels = width * height, indexedPixels = getUint8Array(numberPixels), k = 0, i, r, g, b;
         for (i = 0; i < numberPixels; i++) {
           r = rgbComponents[k++];
           g = rgbComponents[k++];
